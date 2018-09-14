@@ -1,5 +1,11 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<h1>Note App</h1>
+
+<div class="well">
+  <ul class="nav nav-pills">
+    {{#link-to 'notes.index' tagName="li"}}<a href="">List all</a>{{/link-to}}
+    {{#link-to 'notes.new' tagName="li"}}<a href="">Add new</a>{{/link-to}}
+  </ul>
+</div>
 
 {{outlet}}
+

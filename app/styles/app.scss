@@ -1,0 +1,19 @@
+@import "bootstrap";
+#edit_a {
+    color: white;
+}
+
+#style_content {
+    white-space: pre-wrap;
+}
+
+.panel-body {
+    min-height: 200px;
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+.date-left {
+    float: left;
+}
+

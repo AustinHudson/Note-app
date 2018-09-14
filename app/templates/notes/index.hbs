@@ -1,0 +1,23 @@
+{{!-- <div class="list-group">
+    {{#each model as |note|}}
+        {{note-list title=note.title content=note.content}}
+    {{/each}}
+</div>
+
+  <div class="col-md-4">
+    {{#each model as |note|}}
+        {{note-tile title=note.title content=note.content}}
+    {{/each}}
+</div>
+</div> --}}
+
+<div class="row">
+  {{#each model as |note|}}
+    <div class="col-md-4">
+      {{#note-tile title=note.title content=note.content id=note.id createdOn=note.createdOn lastEdit=note.lastEdit}}
+          {{#link-to 'notes.edit' note.id class='btn btn-success btn-xs' tagName='li'}}<a href="" id='edit_a'>Edit</a>{{/link-to}}
+          <button class="btn btn-danger btn-xs" {{action 'deleteNote' note}}>Delete</button>
+        {{/note-tile}}
+    </div>
+  {{/each}}
+</div>

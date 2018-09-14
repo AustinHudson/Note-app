@@ -1,0 +1,31 @@
+
+    {{!-- <h5 class="card-title">{{title}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{item.createdOn}}</h6>
+    <p class="card-text">{{content}}</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+   --}}
+
+  <div class="panel panel-default note-tile">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{title}}</h3>
+        {{!-- <span class="date-right">Testing2</span> --}}
+    </div>
+    <div class="panel-body">
+        <p id='style_content'>{{content}}</p>
+    </div>
+    <div class="panel-footer text-right">
+         {{yield}}
+         
+    </div>
+    <div class="panel-footer text-left">
+        {{#if lastEdit}}
+          <strong>Last Edit: </strong>{{moment-format lastEdit 'LLL'}}
+        {{else}}
+          <strong>Last Edit: </strong>No edits have been made.
+        {{/if}}
+        <br><br>
+        <strong>Created On: </strong>{{moment-format createdOn 'LLL'}}
+    </div>
+    
+  </div>
