@@ -1,6 +1,7 @@
 import DS from 'ember-data';
 import { Model } from 'ember-pouch';
-import date from 'ember-data/transforms/date';
+import { notEmpty } from '@ember/object/computed';
+
 
 export default Model.extend({
 
@@ -13,7 +14,6 @@ export default Model.extend({
     lastEdit: DS.attr('date', {
         defaultValue(){return null;}
     }),
-
-    
+    isValid: notEmpty('title')
     
 });

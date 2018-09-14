@@ -10,7 +10,7 @@ export default Route.extend({
         this._super(controller, model);
     
         controller.set('title', 'Edit Note');
-        controller.set('buttonLabel', 'Save changes');
+        controller.set('buttonLabel', 'Save Note');
       },
     
       renderTemplate() {
