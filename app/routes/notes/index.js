@@ -18,10 +18,10 @@ export default Route.extend({
             }
         },
 
-        filterResults(searchParam) {
-            console.log(searchParam);
-        }
-    }
+    //     filterResults(searchParam) {
+    //         console.log(searchParam);
+    //     }
+     }
    
 
 

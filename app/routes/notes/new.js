@@ -17,10 +17,13 @@ export default Route.extend({
         this.render('notes/form');
     },
 
+    
+
     actions: {
 
         saveNote(newNote) {
             newNote.save().then(() => this.transitionTo('notes'));
+
         },
 
 

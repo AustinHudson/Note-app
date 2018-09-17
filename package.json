@@ -39,6 +39,7 @@
     "ember-load-initializers": "^1.1.0",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-moment": "^7.7.0",
+    "ember-multiselect-checkboxes": "^0.11.1",
     "ember-pouch": "^6.0.0",
     "ember-resolver": "^4.0.0",
     "ember-source": "~3.3.0",

@@ -7,6 +7,7 @@ export default Model.extend({
 
     title: DS.attr('string'),
     content: DS.attr('string'),
+    
     lastUpdate: DS.attr('date'),
     createdOn: DS.attr('date', {
         defaultValue(){ return new Date();}
@@ -14,6 +15,7 @@ export default Model.extend({
     lastEdit: DS.attr('date', {
         defaultValue(){return null;}
     }),
+    tags: DS.hasMany('tag'),
     isValid: notEmpty('title')
     
 });

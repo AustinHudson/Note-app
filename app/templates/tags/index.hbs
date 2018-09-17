@@ -1,0 +1,15 @@
+
+
+
+{{#link-to 'tags.new' tagName="button" class="btn btn-primary"}}<a href="" id="newTagButton">Add New Tag</a>{{/link-to}}
+
+<h3>Current Tags</h3>
+<ul class="list-group">
+{{#each model as |tag|}}
+    
+  <li class="list-group-item">{{tag.name}}<br><br><button class="btn btn-danger btn-xs" {{action 'deleteTag' tag}}>Delete</button></li>
+  
+  {{/each}}
+  </ul>
+
+{{outlet}}

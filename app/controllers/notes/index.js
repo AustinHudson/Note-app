@@ -8,8 +8,10 @@ export default Controller.extend({
 
   filteredList: computed('model.@each', 'filter', function () {
 
-    let results = this.model;
-
+    let titleMatch = this.model;
+    let contentMatch = this.model;
+    //let results;
+  
 
     const query = this.filter;
 
@@ -22,14 +24,17 @@ export default Controller.extend({
       const regex = new RegExp(regexString, 'ig');
 
 
-      results = results.filter((item) => item.get('title').match(regex));
+      titleMatch = titleMatch.filter((item) => item.get('title').match(regex));
 
-
-
+      contentMatch = contentMatch.filter((item) => item.get('content').match(regex))
 
     }
+    else{
+      return this.model;
+    }
 
-    return results;
+    return [...new Set([...titleMatch, ...contentMatch])];
+
   })
 
 });
