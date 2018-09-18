@@ -6,8 +6,8 @@ export default Component.extend({
 
     actions: {
   
-        buttonClicked(param) {
-          this.sendAction('action', param);
+        buttonClicked(param, param2) {
+          this.sendAction('action', param, param2);
         }
     
       }

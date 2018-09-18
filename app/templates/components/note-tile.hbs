@@ -6,16 +6,19 @@
     <a href="#" class="card-link">Another link</a>
    --}}
 
-  <div class="panel panel-default note-tile">
+  <div class="panel panel-default note-tile d-flex">
     <div class="panel-heading">
         <h3 class="panel-title"><strong>{{title}}</strong></h3>
         {{!-- <span class="date-right">Testing2</span> --}}
     </div>
     <div class="panel-heading">
       
-      {{tags.name}}
+      {{#each item.tags as |tag|}}
+         <span class="badge badge-default">
+            {{tag.name}}
+        </span> {{/each}} 
       
-      {{tags}}
+      
     </div>
     <div class="panel-body">
         <p id='style_content'>{{content}}</p>

@@ -5,14 +5,14 @@
   </form>
 </nav>
 
-<div class="row">
+<div class="row" id="container" >
   {{#each filteredList as |note|}}
     <div class="col-md-4">
-      {{#note-tile title=note.title content=note.content id=note.id createdOn=note.createdOn lastEdit=note.lastEdit tags=note.tags}}
-          <span class="tile_buttons">
+      {{#note-tile title=note.title content=note.content id=note.id createdOn=note.createdOn lastEdit=note.lastEdit item=note}}
+          <div class="tile_buttons">
             {{#link-to 'notes.edit' note.id class='btn btn-success btn-xs' tagName='li'}}<a href="" id='edit_a'>Edit</a>{{/link-to}}
              <button class="btn btn-danger btn-xs" {{action 'deleteNote' note}}>Delete</button>
-          </span>
+          </div>
           
         {{/note-tile}}
     </div>

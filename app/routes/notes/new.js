@@ -1,4 +1,5 @@
 import Route from '@ember/routing/route';
+import RSVP from 'rsvp';
 
 export default Route.extend({
 
@@ -21,7 +22,39 @@ export default Route.extend({
 
     actions: {
 
-        saveNote(newNote) {
+        saveNote(newNote, newTagName) {
+
+        let addedTags = newTagName.split(',');
+       
+        
+
+        for (let i = 0; i < addedTags.length; i++){
+            let newTag = this.store.createRecord('tag', {
+                name: addedTags[i]
+            });
+            newTag.get('notes').pushObject(newNote);
+
+            newTag.save().then(function(newTag){
+                newNote.get('tags').pushObject(newTag);
+            });
+            
+            // newNote.get('tags').pushObject(newTag);
+           
+            
+           
+            
+              
+               
+            // newTags.save().then(() => newNote.set('tags', newTags));
+
+            //     // newNote.addObject(addedTags);
+        
+
+            // console.log(newNote)
+            //}
+           
+        }
+            console.log(newNote.tags);
             newNote.save().then(() => this.transitionTo('notes'));
 
         },
@@ -32,8 +65,6 @@ export default Route.extend({
             // if the model 'isNew'
             this.controller.get('model').rollbackAttributes();
           }
-
-
     }
 
 

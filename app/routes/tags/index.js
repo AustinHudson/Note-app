@@ -10,11 +10,13 @@ export default Route.extend({
 
         deleteTag(tag) {
 
-            let confirmation = confirm('Are You sure?');
+            // let confirmation = confirm('Are You sure?');
 
-            if (confirmation) {
-                tag.destroyRecord();
-            }
+            // if (confirmation) {
+            //     tag.destroyRecord();
+            // }
+
+            tag.destroyRecord();
         },
         
     }
