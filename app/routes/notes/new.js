@@ -32,11 +32,11 @@ export default Route.extend({
             let newTag = this.store.createRecord('tag', {
                 name: addedTags[i]
             });
-            newTag.get('notes').pushObject(newNote);
+           
 
-            newTag.save().then(function(newTag){
-                newNote.get('tags').pushObject(newTag);
-            });
+            
+            newNote.get('tags').then((tags) => tags.pushObject(newTag)).then(() => newTag.save());
+            };
             
             // newNote.get('tags').pushObject(newTag);
            
@@ -53,8 +53,8 @@ export default Route.extend({
             // console.log(newNote)
             //}
            
-        }
-            console.log(newNote.tags);
+        
+
             newNote.save().then(() => this.transitionTo('notes'));
 
         },

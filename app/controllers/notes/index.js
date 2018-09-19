@@ -5,35 +5,54 @@ import { equal } from '@ember/object/computed';
 export default Controller.extend({
 
   query_param: 'filter',
-
-  filteredList: computed('model.@each', 'filter', function () {
+  filteredList: computed('model.@each', 'filter', 'filterTag', function () {
 
     let titleMatch = this.model;
     let contentMatch = this.model;
-    //let results;
-  
-
+    let tagMatchArray = this.model.toArray();
+    
     const query = this.filter;
+    const tagQuery = this.filterTag;
+    
 
     if(query) {
-
-      // One of the best regular expression website: http://www.regexr.com/
       // Split the query at spaces and join them to get like this: /(word1)+.*(word2)+.*(word3)+.*/ig
       const regexString = '(' + query.split(' ').join(')+.*(') + ')+.*';
       // i: case insensitive, g: global
       const regex = new RegExp(regexString, 'ig');
 
-
       titleMatch = titleMatch.filter((item) => item.get('title').match(regex));
-
       contentMatch = contentMatch.filter((item) => item.get('content').match(regex))
 
-    }
-    else{
-      return this.model;
+    }else{
+      titleMatch = []
+      contentMatch = []
     }
 
-    return [...new Set([...titleMatch, ...contentMatch])];
+    if(tagQuery){
+      const regexString = '(' + tagQuery.split(' ').join(')+.*(') + ')+.*';
+      const regex = new RegExp(regexString, 'ig');
+
+      let tagMatch = []
+
+      tagMatchArray.forEach(function(note){
+        let noteTags = (note.get('tags'))
+        noteTags.forEach(function(tag){
+            if ((tag.name).match(regex)){
+              tagMatch.push(note);
+            }
+         })         
+          tagMatchArray = tagMatch;
+        })  
+      }else{
+        tagMatchArray = []
+      }
+
+      if (!query && !tagQuery){
+        return this.model;
+      }
+
+    return [...new Set([...titleMatch, ...contentMatch, ...tagMatchArray])];
 
   })
 
