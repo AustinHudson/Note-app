@@ -14,7 +14,6 @@ export default Controller.extend({
     const query = this.filter;
     const tagQuery = this.filterTag;
     
-
     if(query) {
       // Split the query at spaces and join them to get like this: /(word1)+.*(word2)+.*(word3)+.*/ig
       const regexString = '(' + query.split(' ').join(')+.*(') + ')+.*';
@@ -23,12 +22,8 @@ export default Controller.extend({
 
       titleMatch = titleMatch.filter((item) => item.get('title').match(regex));
       contentMatch = contentMatch.filter((item) => item.get('content').match(regex))
-
-    }else{
-      titleMatch = []
-      contentMatch = []
     }
-
+    
     if(tagQuery){
       const regexString = '(' + tagQuery.split(' ').join(')+.*(') + ')+.*';
       const regex = new RegExp(regexString, 'ig');
@@ -44,12 +39,19 @@ export default Controller.extend({
          })         
           tagMatchArray = tagMatch;
         })  
-      }else{
-        tagMatchArray = []
       }
 
       if (!query && !tagQuery){
         return this.model;
+      }
+
+      if (query && !tagQuery){
+        tagMatchArray = [];
+      }
+
+      if (tagQuery && !query){
+        contentMatch = [];
+        titleMatch = [];
       }
 
     return [...new Set([...titleMatch, ...contentMatch, ...tagMatchArray])];

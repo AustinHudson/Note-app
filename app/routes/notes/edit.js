@@ -12,7 +12,6 @@ export default Route.extend({
         controller.set('title', 'Edit Note');
         controller.set('buttonLabel', 'Save Note');
       },
-    
       renderTemplate() {
         this.render('notes/form');
       },  
@@ -22,12 +21,8 @@ export default Route.extend({
         saveNote(note) {
 
           let currentDate = new Date(); 
-
           note.set('lastEdit', currentDate);
-
           note.save().then(() => this.transitionTo('notes'));
-
-
         },
     
         willTransition(transition) {

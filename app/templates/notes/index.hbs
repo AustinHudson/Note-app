@@ -6,15 +6,18 @@
   </form>
 </nav>
 
-<div class="row" id="container" >
+<div class="container-1" >
   {{#each filteredList as |note|}}
-    <div class="col-md-4">
+    <div class="noteTile">
       {{#note-tile title=note.title content=note.content id=note.id createdOn=note.createdOn lastEdit=note.lastEdit item=note}}
           <div class="tile_buttons">
-            {{#link-to 'notes.edit' note.id class='btn btn-success btn-xs' tagName='li'}}<a href="" id='edit_a'>Edit</a>{{/link-to}}
-             <button class="btn btn-danger btn-xs" {{action 'deleteNote' note}}>Delete</button>
+                <div class="edit-button">
+                    {{#link-to 'notes.edit' note.id class='btn btn-success btn-xs' tagName='li' }}<a href="" id='edit_a'>Edit</a>{{/link-to}}
+                </div> 
+                <div class="delete-button">
+                    <button class="btn btn-danger btn-xs" {{action 'deleteNote' note}}>Delete</button>
+                </div>
           </div>
-          
         {{/note-tile}}
     </div>
   {{/each}}

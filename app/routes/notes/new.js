@@ -23,39 +23,28 @@ export default Route.extend({
     actions: {
 
         saveNote(newNote, newTagName) {
-
-        let addedTags = newTagName.split(',');
+        if (newTagName){
+            let addedTags = newTagName.split(',');
        
-        
-
         for (let i = 0; i < addedTags.length; i++){
             let newTag = this.store.createRecord('tag', {
                 name: addedTags[i]
             });
            
-
-            
             newNote.get('tags').then((tags) => tags.pushObject(newTag)).then(() => newTag.save());
             };
-            
-            // newNote.get('tags').pushObject(newTag);
-           
-            
-           
-            
-              
-               
-            // newTags.save().then(() => newNote.set('tags', newTags));
-
-            //     // newNote.addObject(addedTags);
-        
-
-            // console.log(newNote)
-            //}
-           
-        
 
             newNote.save().then(() => this.transitionTo('notes'));
+            
+        }else{
+
+            newNote.save().then(() => this.transitionTo('notes'));
+        }
+        
+            
+        
+
+            
 
         },
 

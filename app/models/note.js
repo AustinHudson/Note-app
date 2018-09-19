@@ -3,6 +3,7 @@ import { Model } from 'ember-pouch';
 import { notEmpty } from '@ember/object/computed';
 
 
+
 export default Model.extend({
 
     title: DS.attr('string'),
