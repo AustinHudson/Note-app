@@ -4,6 +4,8 @@ export default Component.extend({
 
     tagName: '',
 
+    
+
     actions: {
   
         buttonClicked(param, param2) {

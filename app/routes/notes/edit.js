@@ -11,19 +11,44 @@ export default Route.extend({
     
         controller.set('title', 'Edit Note');
         controller.set('buttonLabel', 'Save Note');
+        controller.set('tagNames', "testing tag names")
       },
+
+
       renderTemplate() {
         this.render('notes/form');
       },  
 
       actions: {
-    
-        saveNote(note) {
 
-          let currentDate = new Date(); 
-          note.set('lastEdit', currentDate);
-          note.save().then(() => this.transitionTo('notes'));
+        getTags(){
+            return "Testing";
         },
+    
+        saveNote(newNote, newTagName) {
+
+            if (newTagName){
+                let addedTags = newTagName.split(',');
+           
+            for (let i = 0; i < addedTags.length; i++){
+                let newTag = this.store.createRecord('tag', {
+                    name: addedTags[i]
+                });
+               
+                newNote.get('tags').then((tags) => tags.pushObject(newTag)).then(() => newTag.save());
+                };
+
+                let currentDate = new Date(); 
+                newNote.set('lastEdit', currentDate);
+                newNote.save().then(() => this.transitionTo('notes'));
+                
+            }else{
+                let currentDate = new Date(); 
+                newNote.set('lastEdit', currentDate);
+                newNote.save().then(() => this.transitionTo('notes'));
+                }
+    
+            },
     
         willTransition(transition) {
     

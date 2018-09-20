@@ -9,26 +9,24 @@
   <div class="tile_container">
     <div class="panel-heading">
       <div class="panel-title">
-          <h3><strong>{{title}}</strong></h3>
+          <h3 class="note-title"><strong>{{title}}</strong></h3>
       </div>
         
       <div class="tile-tags">
           {{#each item.tags as |tag|}}
-         <span class="badge badge-default">
-            {{tag.name}}
+         <span class="badge badge-pill badge-warning" id="badges">
+            {{tag.name}}<button type="button" class="close" aria-label="Close" {{action 'deleteTag' tag}}>
+  <span aria-hidden="true">&times;</span>
+</button>
         </span> {{/each}} 
       </div>
-      
-      
-      
     </div>
     <div class="panel-body">
         <p id='style_content'>{{content}}</p>
     </div>
     <div class="footer-container">
         <div class="footer-dates">
-          
-             {{#if lastEdit}}
+          {{#if lastEdit}}
             <strong>Last Edit: </strong>{{moment-format lastEdit 'LLL'}}
           {{else}}
             <strong>Last Edit: </strong>No edits have been made.

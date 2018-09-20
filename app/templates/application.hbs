@@ -1,10 +1,14 @@
-<h1>Note App</h1>
+<div class="app-header">
+    <div class="app-name">
+        <h1><span class="note-app">Note App</span></h1>
+    </div>
+</div>
 
 <div class="well">
   <ul class="nav nav-pills">
     {{#link-to 'notes.index' tagName="li"}}<a href="">View All Notes</a>{{/link-to}}
     {{#link-to 'notes.new' tagName="li"}}<a href="">Add New Note</a>{{/link-to}}
-    {{#link-to 'tags.index' tagName="li"}}<a href="">Tags</a>{{/link-to}}
+    {{!-- {{#link-to 'tags.index' tagName="li"}}<a href="">Tags</a>{{/link-to}} --}}
     
     
   </ul>

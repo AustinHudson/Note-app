@@ -1,6 +1,6 @@
 @import "bootstrap";
 
-@media(min-width:968px){
+@media screen and (min-width:1100px){
 
     .container-1{
         display: flex;
@@ -16,8 +16,54 @@
         margin-top: 5%;
         background-color: white;
         height: 100%;
+        box-shadow: 10px 10px 5px grey;
+       
     }
 }
+
+@media screen and (min-width:767px) and (max-width:1099px){
+
+    .container-1{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        justify-content: space-around;
+    }
+
+    .noteTile{
+    
+        flex-basis: 40%;
+        align-items: stretch;
+        margin-top: 5%;
+        background-color:white;
+        height: 100%;
+        box-shadow: 10px 10px 5px grey;
+       
+    }
+}
+
+@media screen and (max-width:766px){
+
+    .container-1{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        justify-content: space-around;
+    }
+
+    .noteTile{
+    
+        flex-basis: 85%;
+        align-items: stretch;
+        margin-top: 5%;
+        background-color: white;
+        height: 100%;
+        box-shadow: 10px 10px 5px grey;
+       
+    }
+
+}
+
 
 
 
@@ -36,7 +82,7 @@ h1{
     background-color: white;
     border-top: solid 4px black;
     border-bottom: solid black 4px;
-    margin-top: 25px;
+    
 }
 
 
@@ -46,8 +92,10 @@ h1{
 }
 
 #style_content {
-    white-space: pre-wrap;
+    white-space: pre-wrap;  
 }
+
+
 
 .panel-body {
     min-height: 200px;
@@ -62,26 +110,32 @@ h1{
 }
 
 
-.noteTile{
+
+
+// .noteTile{
     
-    flex-basis: 30%;
-    margin-top: 5%;
-    background-color: white;
-    height: 100%;
-    box-shadow: 10px 10px 5px grey;
-}
+//     flex-basis: 30%;
+//     margin-top: 5%;
+
+//     background-color: white;
+//     height: 100%;
+//     box-shadow: 10px 10px 5px grey;
+    
+// }
 
 .tile_container{
     display: flex;
     flex-direction: column;
-    border: solid #337ab7 4px;
+    border: solid black 4px;
     
 }
 
 .panel-heading{
     display: flex;
-    border-bottom: solid#337ab7 4px;
+    border-bottom: solid black 4px;
     flex-direction: column;
+    color:white;
+    background-color: #337ab7
 
     
     
@@ -89,7 +143,7 @@ h1{
 
 .footer-container{
     display: flex;
-    border-top: solid #337ab7 4px;
+    border-top: solid black 4px;
     justify-content: space-around;
     align-items: stretch;
     
@@ -97,13 +151,13 @@ h1{
 
 
 .edit-button{
-    width: 50%;
+    width: 57%;
     margin: 0 auto;
     padding-bottom: 5%;
     
 }
 .delete-button{
-    width: 50%;
+    width: 70%;
     margin: 0 auto;
    
 }
@@ -116,6 +170,7 @@ h1{
 .footer-dates{
     flex: 3;
     
+
     padding: 5px;
 }
 
@@ -128,4 +183,40 @@ h1{
 .tile-tags{
     
     flex: 1;
+}
+
+.app-header {
+    display: flex;
+    align-content: center;
+    background-color: black;
+    padding-bottom: 25px;
+    
+ 
+    
+    
+}
+
+.app-name {
+    flex: 1;
+    text-align: center;
+    align-self: center;
+    vertical-align: middle;
+    padding-top: 15px;
+
+}
+
+.note-app{
+    border: solid #337ab7 4px;
+    padding: 10px;
+    color: white;
+    
+}
+
+#badges{
+    background-color: yellow;
+    color: black;
+}
+
+.close{
+    margin-left: 5px;
 }

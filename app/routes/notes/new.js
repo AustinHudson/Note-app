@@ -39,15 +39,9 @@ export default Route.extend({
         }else{
 
             newNote.save().then(() => this.transitionTo('notes'));
-        }
-        
-            
-        
-
-            
+            }
 
         },
-
 
         willTransition() {
             // rollbackAttributes() removes the record from the store

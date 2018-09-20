@@ -16,7 +16,7 @@
         <label class="col-sm-2 control-label">Tags</label>
         <div class="col-sm-10">
             {{#if item.tags}}
-                {{input type="text" value=item.tags.name placeholder="Add a Tag (TESTING)" class="form-control"}}
+                {{input type="text" value=newTagName  placeholder="Add a Tag" class="form-control"}}
             {{else}}
                 {{input type="text" value=newTagName placeholder="Add a Tag" class="form-control"}}
             {{/if}}
